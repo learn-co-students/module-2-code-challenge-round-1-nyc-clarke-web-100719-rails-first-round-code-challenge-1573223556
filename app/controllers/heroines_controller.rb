@@ -17,7 +17,7 @@ class HeroinesController < ApplicationController
     if @heroine.valid?
       redirect_to heroines_path(@heroine)
     else 
-      @flash_errors = @heroine.errors.full_messages
+      flash[:errors] = @heroine.errors.full_messages
       redirect_to new_heroine_path(@heroine)
     end
 

@@ -1,7 +1,7 @@
 <h2> Create a Heroine </h2>
 
-    <% if @flash_errors %>
-    <% @flash_errors.errors.each do |message| %>
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |message| %>
         <p><%= message %></p>
         <% end %>
     <% end %>
