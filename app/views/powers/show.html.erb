@@ -1,0 +1,10 @@
+
+<h1><%= @power.name %></h1>
+<h1><%= @power.description %></h1>
+
+<h3>
+  <%= link_to("edit", edit_power_path(@power)) %>
+  <%= link_to("delete", power_path(@power), method: :delete) %>
+</h3>
+
+<h3><%= link_to("<< Back to List", powers_path) %></h3>

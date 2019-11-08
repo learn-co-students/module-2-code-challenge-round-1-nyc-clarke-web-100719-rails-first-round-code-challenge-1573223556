@@ -1,9 +1,15 @@
 <h2>All Heroines</h2>
 
+<h3><%= link_to("Create New Heroine", new_heroine_path) %></h3>
+<h3><%= link_to("View Powers List", powers_path) %></h3>
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
       <%= heroine.super_name %>
+      <%= link_to("show", heroine_path(heroine)) %>
+      <%= link_to("edit", edit_heroine_path(heroine)) %>
+      <%= link_to("delete", heroine_path(heroine), method: :delete) %>
     </li>
     <br>
   <% end %>

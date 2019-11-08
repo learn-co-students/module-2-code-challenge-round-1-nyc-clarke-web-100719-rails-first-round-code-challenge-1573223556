@@ -1,12 +1,21 @@
 <h2>All Superpowers</h2>
 
+<h3><%= link_to("Create New Power", new_power_path) %></h3>
+<h3><%= link_to("View Heroines List", heroines_path) %></h3>
+
 <ul>
   <% @powers.each do |power| %>
     <li>
       <%= power.name %>
       <br>
       Description: <%= power.description %>
+      <br>
+      <%= link_to("show", power_path(power)) %>
+      <%= link_to("edit", edit_power_path(power)) %>
+      <%= link_to("delete", power_path(power), method: :delete) %>
     </li>
     <br>
   <% end %>
 </ul>
+
+

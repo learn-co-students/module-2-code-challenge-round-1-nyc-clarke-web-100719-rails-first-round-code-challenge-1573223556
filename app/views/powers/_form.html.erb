@@ -1,0 +1,18 @@
+
+<% if flash[:messages] %>
+  <% flash[:messages].each do |msg|  %>
+    <h3>Error: <%= msg %></h3>
+  <% end %>
+<% end %>
+
+<%= form_for @power do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit %>
+<% end %>
+
+<h3><%= link_to("<< Back to List", powers_path) %></h3>
