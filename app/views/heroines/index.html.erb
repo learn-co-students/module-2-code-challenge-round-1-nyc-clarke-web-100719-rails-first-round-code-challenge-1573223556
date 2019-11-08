@@ -3,6 +3,13 @@
 <h3><%= link_to("Create New Heroine", new_heroine_path) %></h3>
 <h3><%= link_to("View Powers List", powers_path) %></h3>
 
+<%#= form_with url: heroines_path do |f|%>
+  <%#= f.label :search, "Search Power Name:"  %>
+  <%#= f.text_field :search %>
+
+  <%#= f.submit "Search" %>
+<%# end %>
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
