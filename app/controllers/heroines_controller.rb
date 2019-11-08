@@ -9,6 +9,13 @@ class HeroinesController < ApplicationController
   def show
   end
 
+  def search
+    @heroines_arr = []
+    power = Power.find_by(name: params[:q].downcase)
+    @heroines_arr << power.heroines
+    redirect_to heroines_path
+  end
+
   def new
     @heroine = Heroine.new
   end

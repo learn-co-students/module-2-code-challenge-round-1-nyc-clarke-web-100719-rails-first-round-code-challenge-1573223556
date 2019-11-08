@@ -1,10 +1,33 @@
 <h2>All Heroines</h2>
+<div>
+  <ul>
+    <% @heroines.each do |heroine| %>
+      <li>
+        <%= link_to heroine.super_name, heroine %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+</div>
 
-<ul>
-  <% @heroines.each do |heroine| %>
-    <li>
-      <%= link_to heroine.super_name, heroine %>
-    </li>
-    <br>
+<div>
+  <%= link_to "Create a New Heroine", new_heroine_path %>
+</div>
+
+<div>
+  <%= form_with(url: "/search/", method: "get") do %>
+    <%= label_tag(:q, "search for")%>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search")%>
   <% end %>
-</ul>
+</div>
+<p>I made attempt at the search :(</p>
+<% if @heroines_arr %>
+  <div>
+    <%= "Heroes With #{@power.name}"%>
+    <% @heroines_arr.each do |heroine| %>
+      <%= heroine.super_name %><br>
+    <% end %>
+  </div>
+<% end %>
+  

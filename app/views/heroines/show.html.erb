@@ -3,3 +3,5 @@
 <p>REAL NAME: <%= @heroine.name %></p>
 
 <p>POWER: <%= link_to @heroine.power.name.upcase, @heroine.power %></p>
+
+<%= link_to "back to all", heroines_path %>
