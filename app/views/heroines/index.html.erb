@@ -1,5 +1,10 @@
 <h2>All Heroines</h2>
 
+<%= form_tag(heroines_path, method: :get) do %>
+  Search by Super Power :  <%= text_field_tag :power_name, params[:power_name] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
@@ -8,3 +13,5 @@
     <br>
   <% end %>
 </ul>
+
+<%= button_to "Create a new Heroine", {action: "new"}, method: :get %>

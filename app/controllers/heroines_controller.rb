@@ -1,7 +1,15 @@
 class HeroinesController < ApplicationController
   before_action :getHeroine, only: [:show]
   def index
-    @heroines = Heroine.all
+    
+    #Ensures spaces in search field are not searched.
+    string = params[:power_name]
+    string.strip! if string.is_a?(String)
+    if string == ""
+      params[:power_name] = nil
+    end
+
+    @heroines = Heroine.search(params[:power_name])
   end
 
   def show 
@@ -33,7 +41,7 @@ private
   end
 
   def heroineParams
-    params.require(:heroine).permit(:name, :super_name, :power_id)
+    params.require(:heroine).permit(:name, :super_name, :power_id, :power_name)
   end
 
 end
