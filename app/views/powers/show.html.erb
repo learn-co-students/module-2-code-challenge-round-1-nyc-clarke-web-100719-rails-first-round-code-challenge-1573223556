@@ -1,4 +1,15 @@
 <h1> <%= @power.name.upcase %> </h1>
-
-
 <p> <%=@power.description %> </p>
+<%= button_to "All Powers", powers_path, method: :get %>
+
+<hr>
+<h4> Heroine with this power</h4>
+
+<ul>
+<% @power.heroines.each do |heroine| %>
+    <li>
+    <%= link_to heroine.super_name, heroine %>
+    </li>
+<% end %>
+
+</ul>

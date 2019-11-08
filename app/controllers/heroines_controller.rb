@@ -2,7 +2,14 @@ class HeroinesController < ApplicationController
   before_action :set_heroine, only: [:show]
   
   def index
+    if params[:q] && !params[:q].empty?
+      @heroines = Heroine.select{|heroine| heroine.power.name == params[:q]}
+      if @heroines.size == 0 
+        @no_found = true
+      end
+    else
     @heroines = Heroine.all
+    end
   end
 
   def show
@@ -10,6 +17,7 @@ class HeroinesController < ApplicationController
 
   def new
     @heroine = Heroine.new
+    @powers = Power.all
   end
 
   def create

@@ -10,6 +10,6 @@
     <%= f.text_field :name %><br>
     <%= f.label :super_name, "Super Name:" %><br>
     <%= f.text_field :super_name %><br><br>
-    <%= f.collection_select :power_id, Power.all, :id, :name, prompt: true %><br><br>
+    <%= f.collection_select :power_id, @powers, :id, :name, prompt: true %><br><br>
     <%= f.submit %>
 <% end %>

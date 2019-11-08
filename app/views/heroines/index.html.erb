@@ -1,5 +1,15 @@
-<h2>All Heroines</h2>
+<h2><%= link_to "All Heroines", heroines_path %> </h2>
 
+<%= form_tag heroines_path, method: :get do %>
+    <%= label_tag(:q, "Search By Super Power:") %><br>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
+<% if @no_found %>
+  <p> <strong>No Heroines With Such Power </strong >
+  </p>
+<% end %>
 <ul>
   <% @heroines.each do |heroine| %>
     <li>

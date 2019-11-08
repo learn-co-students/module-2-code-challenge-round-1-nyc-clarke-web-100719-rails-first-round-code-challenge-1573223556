@@ -3,3 +3,4 @@
 <p>Name: <%= @heroine.name %></p>
 <p>Power: <%= link_to @heroine.power.name, @heroine.power %> </p>
 
+<%= button_to "All Heroines", heroines_path, method: :get %>
