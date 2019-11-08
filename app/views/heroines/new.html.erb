@@ -10,3 +10,9 @@
   
     <%= f.submit %>
 <% end %>
+<br>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |msg| %>
+        <%= msg %>
+    <% end %>
+<% end %>

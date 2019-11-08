@@ -1,6 +1,6 @@
 class HeroinesController < ApplicationController
   def index
-    @heroines = Heroine.all
+    @heroines = Heroine.search(params[:search])
   end
 
   def show
@@ -18,13 +18,14 @@ class HeroinesController < ApplicationController
       @heroine.save
       redirect_to heroine_path(@heroine)
     else
-      render :new
+      flash[:errors] = @heroine.errors.full_messages
+      redirect_to new_heroine_path
     end
   end
 
   private
 
   def heroine_params
-    params.require(:heroine).permit(:super_name, :name, :power_id)
+    params.require(:heroine).permit(:super_name, :name, :power_id, :search)
   end
 end
