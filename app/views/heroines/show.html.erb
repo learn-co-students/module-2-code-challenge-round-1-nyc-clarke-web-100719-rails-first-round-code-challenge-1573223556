@@ -3,3 +3,7 @@
 Secret Identity : <%=@heroine.name%>
 <br>
 Super Power : <%=link_to @heroine.power.name, power_path(@heroine.power)%>
+
+<br>
+<%= button_to "Edit this Heroine", {action: "edit"}, method: :get%>
+<%= button_to "Return to Index", {action: "index"}, method: :get%>

@@ -1,7 +1,7 @@
 class HeroinesController < ApplicationController
-  before_action :getHeroine, only: [:show]
+  before_action :getHeroine, only: [:show, :edit, :update]
   def index
-    
+
     #Ensures spaces in search field are not searched.
     string = params[:power_name]
     string.strip! if string.is_a?(String)
@@ -30,6 +30,20 @@ class HeroinesController < ApplicationController
     end
   end
 
+  def edit 
+
+  end
+
+  def update
+    @heroine.assign_attributes(heroineParams)
+
+    if @heroine.save
+      redirect_to @heroine
+    else 
+      flash[:error] = @heroine.errors.full_messages
+      render :edit
+    end
+  end
 
 
 
