@@ -1,4 +1,5 @@
 <h1>Welcome <%=@heroine.name%> </h1>
 
-<%=@heroine.super_name%><br>
-<%= link_to @heroine.power.name, power_path(@heroine)%>
+<h3>Super name: <%=@heroine.super_name%></h3><br>
+<h3>power <%= link_to @heroine.power.name, power_path(@heroine)%></h3><br>
+<%= link_to 'Back', heroines_path %>
