@@ -1,0 +1,11 @@
+<h1>Name: <%= @heroine.name %><h1><br />
+<hr>
+
+<h3>Super Name: <%= @heroine.super_name %><h3><br />
+
+<h3>Power: <%= link_to @heroine.power.name.upcase, power_path(@heroine.power) %><h3><br />
+
+<%= button_to "Edit Heroine",  edit_heroine_path(@heroine), method: "get" %><br />
+
+<%= button_to "Delete Heroine",  heroine_path(@heroine), method: "delete" %>
+

@@ -1,0 +1,26 @@
+<h1>Create Heroine: </h1>
+
+
+<% if flash[:messages] %>
+    <%= pluralize("#{flash[:messages].count}", "ERROR").upcase %>
+    <ul>
+    <% flash[:messages].each do |message| %>
+        <h4><li><%= message %></li></h4>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @heroine do |f| %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br />
+
+    <%= f.label :super_name %><br />
+    <%= f.text_field :super_name %><br />
+
+    <%= f.label "Powerrrrrr" %><br />
+    <%= f.collection_select(:power_id, Power.all, :id, :name, :prompt => "which power?") %><br />
+
+    <%= f.submit %><br />
+
+
+<% end %>
