@@ -1,3 +1,7 @@
 <h1><%= @heroine.super_name %></h1>
 <p><%= @heroine.name %></p>
 <p><%= link_to @heroine.power.name, power_path(@heroine.power) %></p>
+
+<%= link_to "Edit Heroine", edit_heroine_path(@heroine) %><br>
+<%= link_to "Delete Heroine" %><br>
+<%= link_to "Back to All Heroines", heroines_path %>
