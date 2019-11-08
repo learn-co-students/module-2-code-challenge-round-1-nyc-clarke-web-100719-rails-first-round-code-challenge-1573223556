@@ -2,3 +2,5 @@
 
 <p><strong>Name:</strong> <%= @heroine.name %></p>
 <p><strong>Power:</strong> <%= link_to @heroine.power.name, @heroine.power %></p>
+
+<%= button_to "Edit", edit_heroine_path(@heroine), method: :get %>

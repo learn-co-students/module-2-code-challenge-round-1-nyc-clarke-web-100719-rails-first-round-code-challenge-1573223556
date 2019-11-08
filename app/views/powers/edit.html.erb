@@ -1,0 +1,5 @@
+<h1>Edit a Power: </h1>
+
+<%= render 'form', power:@power %>
+
+<%= button_to "Delete", @power, method: :delete, data: {confirm: "Are you sure you want to delete this power? This will delete all associated heroines as well."} %>

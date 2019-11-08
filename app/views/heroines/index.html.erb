@@ -1,5 +1,18 @@
 <h2>All Heroines</h2>
 
+<%= form_tag heroines_path, method: :get do %>
+  <strong><%= label_tag :search, "Search by Superpower:"%></strong> <br />
+  <%= text_field_tag :search %>
+  <%= submit_tag :search %>
+<% end %><br />
+
+<%= form_tag heroines_path, method: :get do %>
+  <strong><%= label_tag :search, "Search by Superpower:"%></strong> <br />
+  <%= select_tag :search, options_from_collection_for_select(@powers, "name", "name"), include_blank: true %>
+  <%= submit_tag :search %>
+<% end %>
+
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
@@ -8,3 +21,5 @@
     <br>
   <% end %>
 </ul>
+
+<%= button_to "Create", new_heroine_path, method: :get %>

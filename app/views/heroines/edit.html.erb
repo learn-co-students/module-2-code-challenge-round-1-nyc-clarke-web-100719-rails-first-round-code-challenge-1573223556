@@ -1,0 +1,5 @@
+<h1>Edit a Heroine: </h1>
+
+<%= render 'form', heroine:@heroine %>
+
+<%= button_to "Delete", @heroine, method: :delete, data: {confirm: "Are you sure you want to delete this heroine?"} %>

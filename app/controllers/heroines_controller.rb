@@ -1,7 +1,12 @@
 class HeroinesController < ApplicationController
-  before_action :set_heroine, only: [:show]
+  before_action :set_heroine, only: [:show, :edit, :update, :destroy]
   def index
-    @heroines = Heroine.all
+    @powers = Power.all
+    if params[:search].present?
+      @heroines = Heroine.all.select { |heroine| heroine.power.name == params[:search] }
+    else 
+      @heroines = Heroine.all
+    end
   end
 
   def show
@@ -10,7 +15,19 @@ class HeroinesController < ApplicationController
 
   def new
     @heroine = Heroine.new
-    @powers = Power.all
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @heroine.update(heroine_params)
+      redirect_to @heroine
+    else 
+      flash[:messages] = @heroine.errors.full_messages
+      redirect_to new_heroine_path
+    end
   end
 
   def create
@@ -22,7 +39,12 @@ class HeroinesController < ApplicationController
       flash[:messages] = @heroine.errors.full_messages
       redirect_to new_heroine_path
     end
+  end
 
+  def destroy
+    @heroine.destroy
+
+    redirect_to heroines_path
   end
 
   private
