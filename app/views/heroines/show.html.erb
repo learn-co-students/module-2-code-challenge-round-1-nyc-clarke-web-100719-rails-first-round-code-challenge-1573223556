@@ -1,0 +1,7 @@
+<h2> Herione Profile Page </h2>
+
+<ul>
+Name: <%= @heroine.name %><br>
+Super Name: <%= @heroine.super_name %><br>
+Super Power: <%= link_to @heroine.power.name, power_path(@heroine.power)%><br>
+</ul>
